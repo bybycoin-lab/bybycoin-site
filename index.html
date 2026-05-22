@@ -1,131 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BYBYCOIN</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BYBYCOIN (BYB)</title>
   <style>
-    body{
-      margin:0;
-      padding:0;
-      background:black;
-      color:white;
-      font-family:Arial;
-      overflow:hidden;
-    }
-
-    .container{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-      text-align:center;
-    }
-
-    h1{
-      font-size:60px;
-      color:#ff0055;
-      text-shadow:0 0 20px #ff0055;
-      animation: glow 2s infinite alternate;
-    }
-
-    p{
-      font-size:20px;
-      opacity:0.8;
-    }
-
-    button{
-      margin-top:30px;
-      padding:15px 40px;
-      border:none;
-      border-radius:12px;
-      background:#ff0055;
-      color:white;
-      font-size:18px;
-      cursor:pointer;
-      transition:0.3s;
-    }
-
-    button:hover{
-      transform:scale(1.1);
-      background:#ff3377;
-    }
-
-    @keyframes glow{
-      from{
-        text-shadow:0 0 10px #ff0055;
-      }
-      to{
-        text-shadow:0 0 30px #ff0055;
-      }
-    }
+    body{margin:0;background:#05050a;color:white;font-family:Arial,Helvetica,sans-serif}
+    a{color:#ff3bbd;text-decoration:none}
+    header{padding:22px 8%;display:flex;justify-content:space-between;align-items:center;background:#080812;position:sticky;top:0;z-index:10}
+    .logo{font-size:24px;font-weight:bold;color:#ff2fb3;text-shadow:0 0 18px #ff2fb3}
+    nav a{margin-left:18px;color:white;font-size:14px}
+    .hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 8%;background:radial-gradient(circle,#231139,#05050a 60%)}
+    h1{font-size:64px;margin:0;color:#ff2fb3;text-shadow:0 0 25px #ff2fb3}
+    h2{color:#ff2fb3;margin-top:50px}
+    p{line-height:1.7;color:#ddd}
+    .btn{display:inline-block;margin:10px;padding:14px 26px;border-radius:12px;background:#ff2fb3;color:white;border:0;cursor:pointer;font-weight:bold;box-shadow:0 0 20px #ff2fb3}
+    section{padding:55px 8%;max-width:1100px;margin:auto}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .card{background:#101020;border:1px solid #2a2a45;border-radius:18px;padding:22px;box-shadow:0 0 20px rgba(255,47,179,.12)}
+    table{width:100%;border-collapse:collapse;background:#101020;border-radius:16px;overflow:hidden}
+    td,th{padding:14px;border-bottom:1px solid #2a2a45;text-align:left}
+    .contract{word-break:break-all;background:#111126;padding:16px;border-radius:14px;border:1px solid #ff2fb3}
+    footer{text-align:center;padding:35px;color:#aaa;background:#080812}
   </style>
 </head>
-
 <body>
 
-<div class="container">
-  <h1>🚀 BYBYCOIN</h1>
-  <p>The Future of Web3 is Here</p>
+<header>
+  <div class="logo">🚀 BYBYCOIN</div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#token">Token</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#whitepaper">Whitepaper</a>
+  </nav>
+</header>
 
-  <button onclick="connectWallet()">
-    Connect Wallet
-  </button>
+<div class="hero">
+  <div>
+    <h1>BYBYCOIN</h1>
+    <p>Community • Web3 • Meme • AI • NFT • Trading Ecosystem</p>
+    <button class="btn" onclick="connectWallet()">Connect Wallet</button>
+    <button class="btn" onclick="copyContract()">Copy Contract</button>
+    <p id="wallet"></p>
+  </div>
 </div>
 
+<section id="about">
+  <h2>Official Project Overview</h2>
+  <p>
+    ByByCoin (BYB) is a next-generation community-driven cryptocurrency built on BNB Smart Chain.
+    The project combines meme culture, Web3 technology, AI innovation, NFT integration, and future decentralized utilities into one ecosystem.
+  </p>
+  <p>
+    The vision of BYBYCOIN is to create a strong crypto community with real utilities, transparent development, and long-term growth.
+  </p>
+</section>
+
+<section id="token">
+  <h2>Token Information</h2>
+  <table>
+    <tr><th>Property</th><th>Value</th></tr>
+    <tr><td>Name</td><td>ByByCoin</td></tr>
+    <tr><td>Symbol</td><td>BYB</td></tr>
+    <tr><td>Network</td><td>BNB Smart Chain</td></tr>
+    <tr><td>Standard</td><td>BEP-20</td></tr>
+    <tr><td>Total Supply</td><td>100,000,000 BYB</td></tr>
+    <tr><td>Decimals</td><td>18</td></tr>
+  </table>
+
+  <h2>Official Contract Address</h2>
+  <div class="contract" id="contract">0x46a5E39AfE4fEE03083622f3B4B11B1897C971BC</div>
+</section>
+
+<section>
+  <h2>Tokenomics</h2>
+  <div class="cards">
+    <div class="card">Liquidity Pool<br><b>40%</b></div>
+    <div class="card">Community Rewards<br><b>20%</b></div>
+    <div class="card">Marketing<br><b>15%</b></div>
+    <div class="card">Ecosystem Development<br><b>15%</b></div>
+    <div class="card">Team & Future Expansion<br><b>10%</b></div>
+  </div>
+</section>
+
+<section>
+  <h2>Utilities</h2>
+  <div class="cards">
+    <div class="card">Community Rewards</div>
+    <div class="card">NFT Marketplace</div>
+    <div class="card">Staking System</div>
+    <div class="card">Web3 Payments</div>
+    <div class="card">Gaming Integration</div>
+    <div class="card">AI Crypto Tools</div>
+    <div class="card">Mobile App</div>
+    <div class="card">Launchpad Participation</div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <h2>Roadmap</h2>
+  <div class="cards">
+    <div class="card"><b>Phase 1</b><p>Token creation, website launch, community building, whitepaper release.</p></div>
+    <div class="card"><b>Phase 2</b><p>PancakeSwap liquidity, trading launch, marketing, CoinGecko and CMC requests.</p></div>
+    <div class="card"><b>Phase 3</b><p>NFT collection, staking platform, AI utilities, partnerships.</p></div>
+    <div class="card"><b>Phase 4</b><p>CEX discussions, ecosystem expansion, Web3 services, global growth.</p></div>
+  </div>
+</section>
+
+<section id="whitepaper">
+  <h2>Whitepaper</h2>
+  <p>
+    BYBYCOIN aims to become more than a meme token by creating real utilities and partnerships across the blockchain ecosystem.
+  </p>
+  <a class="btn" href="#about">Read Whitepaper</a>
+</section>
+
+<section>
+  <h2>Official Social Links</h2>
+  <p>Instagram: <a href="https://www.instagram.com/bybycoin" target="_blank">instagram.com/bybycoin</a></p>
+  <p>Telegram: <a href="https://t.me/+212690949167" target="_blank">Join Telegram</a></p>
+</section>
+
+<section>
+  <h2>Disclaimer</h2>
+  <p>
+    Cryptocurrency investments involve risk. BYBYCOIN does not guarantee profits or financial returns.
+    Users should always do their own research before participating in any blockchain project.
+  </p>
+</section>
+
+<footer>
+  © 2026 BYBYCOIN (BYB). Built on BNB Smart Chain.
+</footer>
+
 <script>
 async function connectWallet() {
-
-  if(window.ethereum){
-    try{
-      await window.ethereum.request({
-        method:'eth_requestAccounts'
-      });
-
-      alert("Wallet Connected 🚀");
-    }
-    catch(error){
-      alert("Connection Cancelled");
-    }
-  }
-  else{
-    alert("Please install MetaMask");
-  }
-}
-</script>
-<script>
-async function connectWallet() {
-
   if (window.ethereum) {
-
     try {
-
-      const accounts = await window.ethereum.request({
-        method: 'eth_requestAccounts'
-      });
-
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
       const wallet = accounts[0];
-
+      document.getElementById("wallet").innerText =
+        "Connected: " + wallet.slice(0,6) + "..." + wallet.slice(-4);
       document.querySelector("button").innerText =
         wallet.slice(0,6) + "..." + wallet.slice(-4);
-
       alert("Wallet Connected 🚀");
-
-    } catch(error) {
-
+    } catch (error) {
       alert("Connection Cancelled");
-
     }
-
   } else {
-
     alert("Please install MetaMask");
-
   }
+}
 
+function copyContract() {
+  const contract = document.getElementById("contract").innerText;
+  navigator.clipboard.writeText(contract);
+  alert("Contract copied ✅");
 }
 </script>
+
 </body>
 </html>
