@@ -1,165 +1,542 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>BYBYCOIN | BYB</title>
+
 <link rel="icon" href="logo.png">
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#050505;color:white;font-family:Arial,Helvetica,sans-serif}
-a{text-decoration:none;color:inherit}
-header{position:sticky;top:0;z-index:9;background:#070707ee;border-bottom:1px solid #d4af3740;padding:18px 7%;display:flex;justify-content:space-between;align-items:center}
-.brand{display:flex;align-items:center;gap:12px;font-size:24px;font-weight:900;color:#d4af37}
-.brand img{width:42px;height:42px;border-radius:50%}
-nav a{margin-left:22px;color:#ddd;font-size:15px}
-.hero{min-height:92vh;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:40px;padding:70px 7%;background:radial-gradient(circle at right,#2b2108,#050505 55%)}
-.hero h1{font-size:78px;margin:0;color:#d4af37;text-shadow:0 0 25px #d4af37}
-.hero h2{font-size:32px;margin:10px 0 20px}
-.hero p{font-size:18px;line-height:1.7;color:#ddd}
-.logo-big{width:330px;max-width:100%;border-radius:50%;box-shadow:0 0 55px #d4af37}
-.btn{display:inline-block;margin:10px 8px 10px 0;padding:15px 28px;border-radius:12px;background:#d4af37;color:#000;font-weight:800;border:0;cursor:pointer}
-.btn.out{background:transparent;color:#d4af37;border:1px solid #d4af37}
-.contract{margin-top:18px;padding:16px;border:1px solid #d4af37;border-radius:12px;background:#111;word-break:break-all}
-section{padding:65px 7%;border-top:1px solid #ffffff14}
-h3{font-size:34px;color:#d4af37;margin-top:0}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{background:#101010;border:1px solid #d4af3735;border-radius:18px;padding:24px;box-shadow:0 0 22px #000}
-.card b{color:#d4af37;font-size:22px}
-table{width:100%;border-collapse:collapse;background:#101010;border-radius:16px;overflow:hidden}
-td,th{padding:16px;border-bottom:1px solid #ffffff12;text-align:left}
-.social a{display:inline-block;margin:8px;padding:14px 22px;background:#111;border:1px solid #d4af37;border-radius:12px;color:#d4af37;font-weight:bold}
-footer{text-align:center;padding:35px;color:#999;background:#070707}
-@media(max-width:800px){.hero{grid-template-columns:1fr;text-align:center}.hero h1{font-size:48px}nav{display:none}}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+background:#050505;
+font-family:Arial,Helvetica,sans-serif;
+color:white;
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#050505ee;
+backdrop-filter:blur(10px);
+border-bottom:1px solid #d4af3733;
+z-index:1000;
+}
+
+.logo-nav{
+display:flex;
+align-items:center;
+gap:12px;
+font-size:24px;
+font-weight:900;
+color:#d4af37;
+}
+
+.logo-nav img{
+width:45px;
+height:45px;
+border-radius:50%;
+box-shadow:0 0 15px #d4af37;
+}
+
+nav a{
+margin-left:25px;
+color:#ddd;
+font-size:15px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#d4af37;
+}
+
+.hero{
+min-height:100vh;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+padding:120px 7%;
+gap:40px;
+background:
+radial-gradient(circle at right,#2d2206,#050505 60%);
+}
+
+.hero-text h1{
+font-size:90px;
+color:#d4af37;
+text-shadow:0 0 25px #d4af37;
+margin-bottom:10px;
+}
+
+.hero-text h2{
+font-size:32px;
+margin-bottom:20px;
+}
+
+.hero-text p{
+font-size:18px;
+line-height:1.8;
+color:#ccc;
+margin-bottom:30px;
+}
+
+.hero-logo{
+text-align:center;
+}
+
+.hero-logo img{
+width:370px;
+max-width:100%;
+border-radius:50%;
+box-shadow:0 0 60px #d4af37;
+animation:glow 2s infinite alternate;
+}
+
+.btn{
+padding:15px 28px;
+border:none;
+border-radius:12px;
+background:#d4af37;
+color:black;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+margin-right:10px;
+transition:0.3s;
+box-shadow:0 0 20px #d4af37;
+}
+
+.btn:hover{
+transform:scale(1.05);
+background:white;
+}
+
+.btn2{
+background:transparent;
+border:1px solid #d4af37;
+color:#d4af37;
+}
+
+section{
+padding:80px 7%;
+border-top:1px solid #ffffff12;
+}
+
+.title{
+font-size:40px;
+margin-bottom:30px;
+color:#d4af37;
+text-shadow:0 0 15px #d4af37;
+}
+
+.card{
+background:#111;
+padding:30px;
+border-radius:20px;
+border:1px solid #d4af3733;
+box-shadow:0 0 20px #000;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.box{
+background:#161616;
+padding:25px;
+border-radius:18px;
+text-align:center;
+border:1px solid #d4af3720;
+transition:0.3s;
+}
+
+.box:hover{
+transform:translateY(-5px);
+border-color:#d4af37;
+}
+
+.box h3{
+font-size:28px;
+color:#d4af37;
+margin-bottom:10px;
+}
+
+.contract{
+background:#111;
+padding:18px;
+border-radius:12px;
+margin-top:20px;
+word-break:break-all;
+border:1px solid #d4af37;
+}
+
+.socials a{
+display:inline-block;
+padding:14px 24px;
+margin:10px;
+background:#111;
+border:1px solid #d4af37;
+border-radius:12px;
+color:#d4af37;
+font-weight:bold;
+transition:0.3s;
+}
+
+.socials a:hover{
+background:#d4af37;
+color:black;
+}
+
+footer{
+padding:35px;
+text-align:center;
+background:#080808;
+color:#888;
+margin-top:50px;
+}
+
+@keyframes glow{
+
+from{
+box-shadow:0 0 20px #d4af37;
+}
+
+to{
+box-shadow:0 0 70px #d4af37;
+}
+
+}
+
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.hero-text h1{
+font-size:60px;
+}
+
+nav{
+display:none;
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
 <header>
-  <div class="brand">
-    <img src="logo.png">
-    BYBYCOIN
-  </div>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#token">Token</a>
-    <a href="#tokenomics">Tokenomics</a>
-    <a href="#roadmap">Roadmap</a>
-    <a href="#community">Community</a>
-  </nav>
-</header>
 
-<div class="hero">
-  <div>
-    <h1>BYBYCOIN</h1>
-    <h2>Community • Web3 • Meme • AI • NFT</h2>
-    <p>BYBYCOIN (BYB) is a community-driven cryptocurrency built on BNB Smart Chain, designed for Web3 utilities, community rewards, NFTs, AI tools and future ecosystem growth.</p>
-
-    <button class="btn" onclick="connectWallet()">Connect Wallet</button>
-    <button class="btn out" onclick="copyContract()">Copy Contract</button>
-
-    <div class="contract" id="contract">0x46a5E39AfE4fEE03083622f3B4B11B1897C971BC</div>
-    <p id="wallet"></p>
-  </div>
-
-  <div style="text-align:center">
-    <img class="logo-big" src="logo.png">
-  </div>
+<div class="logo-nav">
+<img src="logo.png">
+<span>BYBYCOIN</span>
 </div>
 
+<nav>
+<a href="#about">About</a>
+<a href="#token">Token</a>
+<a href="#tokenomics">Tokenomics</a>
+<a href="#roadmap">Roadmap</a>
+<a href="#community">Community</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>BYBYCOIN</h1>
+
+<h2>Community • Web3 • Meme • AI • NFT</h2>
+
+<p>
+BYBYCOIN (BYB) is a next-generation community-driven cryptocurrency built on BNB Smart Chain.  
+The project combines Meme Culture, AI innovation, NFTs, Web3 utilities and future decentralized applications into one ecosystem.
+</p>
+
+<button class="btn" onclick="connectWallet()">
+Connect Wallet
+</button>
+
+<button class="btn btn2" onclick="copyContract()">
+Copy Contract
+</button>
+
+<div class="contract" id="contract">
+0x46a5E39AfE4fEE03083622f3B4B11B1897C971BC
+</div>
+
+<p id="wallet" style="margin-top:15px;color:#d4af37;"></p>
+
+</div>
+
+<div class="hero-logo">
+
+<img src="logo.png">
+
+</div>
+
+</section>
+
 <section id="about">
-<h3>About BYBYCOIN</h3>
-<p>BYBYCOIN combines meme culture, Web3 technology, AI innovation, NFT integration and future decentralized utilities into one ecosystem. The vision is to build a recognizable crypto brand with transparent development and long-term community growth.</p>
+
+<h2 class="title">About BYBYCOIN</h2>
+
+<div class="card">
+
+<p style="line-height:1.9;color:#ccc;font-size:18px;">
+
+ByByCoin (BYB) is a next-generation community-driven cryptocurrency built on BNB Smart Chain.  
+The project combines meme culture, Web3 technology, AI innovation, NFT integration, and future decentralized utilities into one ecosystem.
+
+<br><br>
+
+The vision of BYBYCOIN is to create a strong crypto community with real utilities, transparent development, and long-term growth.
+
+</p>
+
+</div>
+
 </section>
 
 <section id="token">
-<h3>Token Information</h3>
-<table>
-<tr><th>Property</th><th>Value</th></tr>
-<tr><td>Name</td><td>ByByCoin</td></tr>
-<tr><td>Symbol</td><td>BYB</td></tr>
-<tr><td>Network</td><td>BNB Smart Chain</td></tr>
-<tr><td>Standard</td><td>BEP-20</td></tr>
-<tr><td>Total Supply</td><td>100,000,000 BYB</td></tr>
-<tr><td>Decimals</td><td>18</td></tr>
-</table>
+
+<h2 class="title">Token Information</h2>
+
+<div class="grid">
+
+<div class="box">
+<h3>Name</h3>
+<p>ByByCoin</p>
+</div>
+
+<div class="box">
+<h3>Symbol</h3>
+<p>BYB</p>
+</div>
+
+<div class="box">
+<h3>Network</h3>
+<p>BNB Smart Chain</p>
+</div>
+
+<div class="box">
+<h3>Total Supply</h3>
+<p>100,000,000</p>
+</div>
+
+<div class="box">
+<h3>Decimals</h3>
+<p>18</p>
+</div>
+
+</div>
+
 </section>
 
 <section id="tokenomics">
-<h3>Tokenomics</h3>
+
+<h2 class="title">Tokenomics</h2>
+
 <div class="grid">
-<div class="card"><b>40%</b><p>Liquidity Pool</p></div>
-<div class="card"><b>20%</b><p>Community Rewards</p></div>
-<div class="card"><b>15%</b><p>Marketing</p></div>
-<div class="card"><b>15%</b><p>Ecosystem Development</p></div>
-<div class="card"><b>10%</b><p>Team & Future Expansion</p></div>
+
+<div class="box">
+<h3>40%</h3>
+<p>Liquidity Pool</p>
 </div>
+
+<div class="box">
+<h3>20%</h3>
+<p>Community Rewards</p>
+</div>
+
+<div class="box">
+<h3>15%</h3>
+<p>Marketing</p>
+</div>
+
+<div class="box">
+<h3>15%</h3>
+<p>Ecosystem Development</p>
+</div>
+
+<div class="box">
+<h3>10%</h3>
+<p>Team & Expansion</p>
+</div>
+
+</div>
+
 </section>
 
 <section>
-<h3>Utilities</h3>
+
+<h2 class="title">Utilities</h2>
+
 <div class="grid">
-<div class="card">Community Rewards</div>
-<div class="card">NFT Marketplace</div>
-<div class="card">Staking System</div>
-<div class="card">Web3 Payments</div>
-<div class="card">Gaming Integration</div>
-<div class="card">AI Crypto Tools</div>
-<div class="card">Future Mobile App</div>
-<div class="card">Launchpad Participation</div>
+
+<div class="box">NFT Marketplace</div>
+<div class="box">Staking System</div>
+<div class="box">AI Crypto Tools</div>
+<div class="box">Gaming Integration</div>
+<div class="box">Web3 Payments</div>
+<div class="box">Launchpad Access</div>
+
 </div>
+
 </section>
 
 <section id="roadmap">
-<h3>Roadmap</h3>
+
+<h2 class="title">Roadmap</h2>
+
 <div class="grid">
-<div class="card"><b>Phase 1</b><p>Token creation, website launch, community building, social media setup, whitepaper release.</p></div>
-<div class="card"><b>Phase 2</b><p>PancakeSwap liquidity, trading launch, marketing campaigns, CoinGecko and CoinMarketCap requests.</p></div>
-<div class="card"><b>Phase 3</b><p>NFT collection, staking platform, AI utilities, strategic partnerships.</p></div>
-<div class="card"><b>Phase 4</b><p>CEX discussions, ecosystem expansion, Web3 services, global community growth.</p></div>
+
+<div class="card">
+<h3 style="color:#d4af37;">Phase 1</h3>
+<p>Token Creation • Website Launch • Community Building • Whitepaper Release</p>
 </div>
+
+<div class="card">
+<h3 style="color:#d4af37;">Phase 2</h3>
+<p>PancakeSwap • Marketing • CoinGecko • CoinMarketCap</p>
+</div>
+
+<div class="card">
+<h3 style="color:#d4af37;">Phase 3</h3>
+<p>NFT Collection • Staking • AI Utilities • Partnerships</p>
+</div>
+
+<div class="card">
+<h3 style="color:#d4af37;">Phase 4</h3>
+<p>CEX Discussions • Ecosystem Expansion • Global Growth</p>
+</div>
+
+</div>
+
 </section>
 
 <section id="community">
-<h3>Official Community</h3>
-<div class="social">
-<a href="https://www.instagram.com/bybycoin" target="_blank">Instagram @bybycoin</a>
-<a href="https://t.me/Bybycoin" target="_blank">Telegram @Bybycoin</a>
+
+<h2 class="title">Official Community</h2>
+
+<div class="socials">
+
+<a href="https://instagram.com/bybycoin" target="_blank">
+Instagram @bybycoin
+</a>
+
+<a href="https://t.me/Bybycoin" target="_blank">
+Telegram @Bybycoin
+</a>
+
 </div>
+
 </section>
 
 <section>
-<h3>Disclaimer</h3>
-<p>Cryptocurrency investments involve risk. BYBYCOIN does not guarantee profits or financial returns. Users should always do their own research before participating in any blockchain project.</p>
+
+<h2 class="title">Disclaimer</h2>
+
+<div class="card">
+
+<p style="line-height:1.8;color:#ccc;">
+
+Cryptocurrency investments involve risk.  
+BYBYCOIN does not guarantee profits or financial returns.  
+Users should always do their own research before participating in any blockchain project.
+
+</p>
+
+</div>
+
 </section>
 
 <footer>
+
 © 2026 BYBYCOIN (BYB) • Built on BNB Smart Chain
+
 </footer>
 
 <script>
+
 async function connectWallet(){
-  if(window.ethereum){
-    try{
-      const accounts = await window.ethereum.request({method:'eth_requestAccounts'});
-      const wallet = accounts[0];
-      document.getElementById("wallet").innerText = "Connected: " + wallet.slice(0,6) + "..." + wallet.slice(-4);
-      alert("Wallet Connected 🚀");
-    }catch(e){
-      alert("Connection Cancelled");
-    }
-  }else{
-    alert("Please install MetaMask");
-  }
+
+if(window.ethereum){
+
+try{
+
+const accounts = await window.ethereum.request({
+method:'eth_requestAccounts'
+});
+
+const wallet = accounts[0];
+
+document.getElementById("wallet").innerText =
+"Connected: " +
+wallet.slice(0,6)
++
+"..."
++
+wallet.slice(-4);
+
+alert("Wallet Connected 🚀");
+
+}catch(error){
+
+alert("Connection Cancelled");
+
+}
+
+}else{
+
+alert("Please Install MetaMask");
+
+}
+
 }
 
 function copyContract(){
-  const text = document.getElementById("contract").innerText;
-  navigator.clipboard.writeText(text);
-  alert("Contract copied ✅");
+
+const text =
+document.getElementById("contract").innerText;
+
+navigator.clipboard.writeText(text);
+
+alert("Contract Copied ✅");
+
 }
+
 </script>
 
 </body>
